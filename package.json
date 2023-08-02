@@ -1,0 +1,32 @@
+{
+  "name": "rabbithtml",
+  "version": "1.0.0",
+  "description": "RabbitHTML - a simple Vite template for static websites",
+  "author": "Nuckle",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:vite": "vite --port 3000 --host",
+    "dev:sass": "sass  --no-source-map --watch src/sass/style.scss:src/css/style.css",
+    "prod": "npm-run-all build prettify",
+    "build": "npm-run-all --parallel build:*",
+    "build:vite": "vite build",
+    "build:sass": "sass  --no-source-map src/sass/style.scss:dist/css/style.css",
+    "prettify": "prettier --write \"dist/**/*.html\"",
+    "preview": "vite preview --port 3001"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.27",
+    "postcss-cli": "^10.1.0",
+    "sass": "^1.64.1",
+    "vite": "^4.4.4",
+    "vite-plugin-handlebars": "^1.6.0",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-svg-sprite-wrapper": "^1.1.0"
+  }
+}
