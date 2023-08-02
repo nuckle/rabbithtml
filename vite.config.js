@@ -1,7 +1,9 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
-import viteImagemin from 'vite-plugin-imagemin'
+import { resolve, relative, extname } from 'path'
+import { fileURLToPath } from 'url'
+import glob from 'fast-glob'
 import cssnano from 'cssnano'
+import viteImagemin from 'vite-plugin-imagemin'
 import handlebars from 'vite-plugin-handlebars'
 import viteSvgSpriteWrapper from 'vite-svg-sprite-wrapper'
 
@@ -65,10 +67,20 @@ export default defineConfig({
 		outDir,
 		emptyOutDir: true,
 		rollupOptions: {
-			input: {
-				main: resolve(root, 'index.html'),
-				example: resolve(root, 'example', 'index.html')
-			},
+			// input: {
+			// 	main: resolve(root, 'index.html'),
+			// 	example: resolve(root, 'example', 'index.html')
+			// },
+			input: Object.fromEntries(
+				glob.sync(['./src/*.html', './src/**/*.html']).map(file => [
+					// This remove `src/` as well as the file extension from each
+					// file, so e.g. src/nested/foo.html becomes nested/foo
+					relative(__dirname, file.slice(0, file.length - extname(file).length)),
+					// This expands the relative paths to absolute paths, so e.g.
+					// src/nested/foo becomes /project/src/nested/fo.js
+					fileURLToPath(new URL(file, import.meta.url)),
+				]),
+			),
 			output: {
 				chunkFileNames: 'js/[name]-[hash].js',
 				entryFileNames: 'js/[name]-[hash].js',
