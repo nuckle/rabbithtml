@@ -72,7 +72,7 @@ export default defineConfig({
 			// 	example: resolve(root, 'example', 'index.html')
 			// },
 			input: Object.fromEntries(
-				glob.sync(['./src/*.html', './src/**/*.html']).map(file => [
+				glob.sync(['./src/*.html', './src/**/*.html', '!./src/parts/**']).map(file => [
 					// This remove `src/` as well as the file extension from each
 					// file, so e.g. src/nested/foo.html becomes nested/foo
 					relative(__dirname, file.slice(0, file.length - extname(file).length)),
