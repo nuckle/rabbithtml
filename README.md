@@ -1,6 +1,6 @@
 # rabbithtml
 
-RabbitHTML - Fast and ligtweight Vite template
+Fast and ligtweight Vite template
 
 
 # Features
@@ -33,8 +33,45 @@ Now you should be able to access the template in your browser using `localhost:3
 `prod` - the same as `build` except the format .html files with `prettier`
 
 
-# Files structure
+# File structure
 
+
+```
+├── package.json
+├── README.md
+├── src
+│   ├── css
+│   │   └── style.css
+│   ├── example
+│   │   └── index.html
+│   ├── img
+│   │   ├── cat1.png
+│   │   ├── cat2.png
+│   │   ├── sprite.svg
+│   │   └── svg
+│   │       ├── github.svg
+│   │       └── gitlab.svg
+│   ├── index.html
+│   ├── main.js
+│   ├── parts
+│   │   ├── footer.html
+│   │   └── header.html
+│   ├── public
+│   │   ├── favicon.ico
+│   │   └── fonts
+│   │       ├── ...woff2
+│   └── sass
+│       ├── base
+│       │   ├── config.scss
+│       │   ├── main.scss
+│       │   └── media.scss
+│       ├── blocks
+│       │   └── example.scss
+│       ├── style.scss
+│       └── vendor
+│           └── normalize.css
+└── vite.config.js
+```
 
 
 
