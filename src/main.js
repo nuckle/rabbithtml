@@ -1,3 +1,5 @@
+import sayHi from './js/example'
+
 document.addEventListener('DOMContentLoaded', function() {
-	console.log('Hello, World!');
+	sayHi();
 })
