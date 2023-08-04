@@ -1,3 +1,5 @@
+@use 'config';
+
 .list-reset {
 	margin: 0;
 	padding-left: 0;
@@ -33,7 +35,7 @@ body {
 	&:focus-visible,
 	&:active,
 	&:hover {
-		border-color: #c46210;
+		border-color: config.$accent;
 	}
 }
 
@@ -65,7 +67,7 @@ body {
 	&:hover,
 	&:focus-visible,
 	&:active {
-		color: #c46210;
+		color: config.$accent;
 	}
 }
 
