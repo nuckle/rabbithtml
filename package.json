@@ -12,7 +12,7 @@
     "build": "npm-run-all --parallel build:*",
     "build:vite": "vite build --base=./",
     "build:sass": "sass  --no-source-map src/sass/style.scss:dist/css/style.css",
-    "prettify": "prettier --write \"dist/**/*.html\"",
+    "prettify": "prettier --ignore-path ./gitignore --write \"dist/**/*.html\"",
     "preview": "vite preview --port 3001 --host"
   },
   "license": "ISC",
