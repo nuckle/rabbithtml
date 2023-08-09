@@ -14,7 +14,6 @@ $gutter: $grid-gutter-width;
 
 // IMPORT SECTION
 
-
 // FONTS LOAD SECTION
 
 @mixin font-face($font-family, $url, $weight, $style) {
@@ -27,10 +26,42 @@ $gutter: $grid-gutter-width;
 	}
 }
 
-@include font-face('roboto-oh5', '/fonts/roboto-regular-webfont.woff2', 400, normal);
-@include font-face('roboto-oh5', '/fonts/roboto-italic-webfont.woff2', 400, italic);
-@include font-face('roboto-oh5', '/fonts/roboto-bold-webfont.woff2', 700, normal);
-@include font-face('roboto-oh5', '/fonts/roboto-bolditalic-webfont.woff2', 700, italic);
+@include font-face(
+	'roboto-oh5',
+	'/fonts/roboto-regular-webfont.woff2',
+	400,
+	normal
+);
+@include font-face(
+	'roboto-oh5',
+	'/fonts/roboto-italic-webfont.woff2',
+	400,
+	italic
+);
+@include font-face(
+	'roboto-oh5',
+	'/fonts/roboto-bold-webfont.woff2',
+	700,
+	normal
+);
+@include font-face(
+	'roboto-oh5',
+	'/fonts/roboto-bolditalic-webfont.woff2',
+	700,
+	italic
+);
+
+@function toRem($pxval, $base: 16) {
+	@if not unitless($pxval) {
+		$pxval: strip-units($pxval);
+	}
+
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+
+	@return calc(($pxval / $base) * 1rem);
+}
 
 // GENERAL CSS SETTINGS
 
@@ -65,4 +96,3 @@ body {
 	line-height: $lineheight;
 	color: $textcolor;
 }
-

@@ -10,7 +10,7 @@
     "dev:sass": "sass  --no-source-map --watch src/sass/style.scss:src/css/style.css",
     "prod": "npm-run-all build prettify",
     "build": "npm-run-all --parallel build:*",
-    "build:vite": "vite build",
+    "build:vite": "vite build --base=./",
     "build:sass": "sass  --no-source-map src/sass/style.scss:dist/css/style.css",
     "prettify": "prettier --write \"dist/**/*.html\"",
     "preview": "vite preview --port 3001 --host"
