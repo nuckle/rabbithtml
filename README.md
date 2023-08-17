@@ -26,7 +26,7 @@ Now you should be able to access the template in your browser using `localhost:3
 - `dev` - run Vite in dev mode
 - `build` - build a website to **/dist** folder
 - `preview` - preview the build
-- `prod` - the same as `build` except the format .html files with `prettier`
+- `prod` - the same as `build` except the format .html files with `js-beautify`
 
 # File structure
 
