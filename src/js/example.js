@@ -1,6 +1,5 @@
 function sayHi() {
-	console.log('Hi!')
+	console.log('Hi!');
 }
 
-export default sayHi
-
+export default sayHi;

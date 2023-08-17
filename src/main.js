@@ -1,5 +1,5 @@
-import sayHi from './js/example'
+import sayHi from './js/example';
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	sayHi();
-})
+});
