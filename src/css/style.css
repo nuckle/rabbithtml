@@ -88,8 +88,7 @@ body {
   color: #fff;
   transition: 0.25s ease border-color;
 }
-
-.link:hover:focus-visible, .link:hover:active, .link:hover:hover {
+.link:focus-visible, .link:active, .link:hover {
   border-color: #c46210;
 }
 
