@@ -1,15 +1,15 @@
-import { defineConfig } from 'vite'
-import { resolve, relative, extname } from 'path'
-import { fileURLToPath } from 'url'
-import glob from 'fast-glob'
-import cssnano from 'cssnano'
-import viteImagemin from 'vite-plugin-imagemin'
-import handlebars from 'vite-plugin-handlebars'
-import viteSvgSpriteWrapper from 'vite-svg-sprite-wrapper'
+import { defineConfig } from 'vite';
+import { resolve, relative, extname, join } from 'path';
+import { fileURLToPath } from 'url';
+import glob from 'fast-glob';
+import cssnano from 'cssnano';
+import viteImagemin from 'vite-plugin-imagemin';
+import handlebars from 'vite-plugin-handlebars';
+import viteSvgSpriteWrapper from 'vite-svg-sprite-wrapper';
+import autoprefixer from 'autoprefixer';
 
-
-const root = resolve(__dirname, 'src')
-const outDir = resolve(__dirname, 'dist')
+const root = resolve(__dirname, 'src');
+const outDir = resolve(__dirname, 'dist');
 
 export default defineConfig({
 	root,
@@ -17,10 +17,29 @@ export default defineConfig({
 		postcss: {
 			plugins: [
 				cssnano({
-					preset: ['default', { discardComments: { removeAll: true } }]
+					preset: ['default', { discardComments: { removeAll: true } }],
 				}),
-			]
-		}
+				autoprefixer(),
+			],
+		},
+		preprocessorOptions: {
+			scss: {
+				api: 'modern-compiler',
+			},
+		},
+	},
+	resolve: {
+		alias: [
+			{
+				find: /~(.+)/,
+				replacement: join(process.cwd(), 'node_modules/$1'),
+			},
+
+			{
+				find: /@\//,
+				replacement: join(process.cwd(), './src/renderer') + '/',
+			},
+		],
 	},
 	plugins: [
 		viteSvgSpriteWrapper({
@@ -28,7 +47,7 @@ export default defineConfig({
 			outputDir: 'src/img',
 			sprite: {
 				svg: {
-					dimensionAttributes: false
+					dimensionAttributes: false,
 				},
 			},
 		}),
@@ -72,7 +91,7 @@ export default defineConfig({
 			// 	example: resolve(root, 'example', 'index.html')
 			// },
 			input: Object.fromEntries(
-				glob.sync(['./src/*.html', './src/**/*.html', '!./src/parts/**']).map(file => [
+				glob.sync(['./src/*.html', './src/**/*.html', '!./src/parts/**']).map((file) => [
 					// This remove `src/` as well as the file extension from each
 					// file, so e.g. src/nested/foo.html becomes nested/foo
 					relative(__dirname, file.slice(0, file.length - extname(file).length)),
@@ -99,6 +118,6 @@ export default defineConfig({
 					return 'assets/[name]-[hash][extname]';
 				},
 			},
-		}
-	}
-})
+		},
+	},
+});
