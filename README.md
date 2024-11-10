@@ -9,6 +9,7 @@ Fast and ligtweight Vite template
 - CSS, JS minification and optimization
 - Prettier format for production
 - Live preview
+- CI/CD support for GitHub and GitLab
 
 # How to use
 
