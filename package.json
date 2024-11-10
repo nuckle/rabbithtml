@@ -8,8 +8,7 @@
 		"dev": "npm-run-all --parallel dev:*",
 		"dev:vite": "vite --port 3000 --host",
 		"prod": "npm-run-all build prettify",
-		"build": "npm-run-all --parallel build:*",
-		"build:vite": "vite build --base=./",
+		"build": "vite build --base=${npm_config_repository:-/} && npm run prettify",
 		"prettify": "glob-run js-beautify -r 'dist/**/*.html'",
 		"preview": "vite preview --port 3001 --host"
 	},
