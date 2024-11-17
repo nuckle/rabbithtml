@@ -2,7 +2,7 @@
 
 Fast and ligtweight Vite starter template
 
-## Demo 
+## Live demo 
 
 - [GitHub](https://nuckle.github.io/rabbithtml/)
 - [GitLab](https://nuckle.gitlab.io/rabbithtml)
