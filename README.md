@@ -1,6 +1,6 @@
 # rabbithtml
 
-Fast and ligtweight Vite template
+Fast and ligtweight Vite starter template
 
 # Features
 
